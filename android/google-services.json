@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1047515788323",
+    "project_id": "a-good-app-15028",
+    "storage_bucket": "a-good-app-15028.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047515788323:android:95b18529942f446f406d96",
+        "android_client_info": {
+          "package_name": "com.tugra.a_good_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1047515788323-bjfa8nf0j4nqf05bqe4870vs9fvqi7qh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tugra.a_good_app",
+            "certificate_hash": "165d01f9eae44bd984714fcaf1a2677178448f99"
+          }
+        },
+        {
+          "client_id": "1047515788323-l414onl9mspr5ghpd5s4l81lk9g5f6u3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnOik1cJRfqrj2jI4bDglzW_gRmCdmo88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1047515788323-l414onl9mspr5ghpd5s4l81lk9g5f6u3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
