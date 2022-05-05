@@ -22,6 +22,16 @@ class AuthService {
   return null;
         }
   }
+  Future signIn({required String email, required String password}) async {
+    try {
+      UserCredential _result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      User? user = _result.user;
+      return user;
+    } catch (e) {
+      debugPrint(e.toString());
+      return null;
+    }}
   Future<bool> signOut()async{
     try{
       await _auth.signOut();
