@@ -54,6 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
               } else {
                 Get.rawSnackbar(messageText: const Text("Kullanı Kaydı Başarılı"));
                 debugPrint(_result.toString());
+                widget.showSignIn();
               }
             }, child: Text("Register"),),
           ],
