@@ -48,7 +48,7 @@ class _UserPageState extends State<UserPage> {
                 ),
             SizedBox(height: 30,),
             MaterialButton(onPressed: () async {
-              var _result = await _authService.signInAnonymous();
+              var _result = await _authService.signIn(email: controllerName.text, password: controllerPass.text);
               if (_result == null) {
                 Get.snackbar("Uyarı", "Kullanıcı Bulunamadı",);
               } else {

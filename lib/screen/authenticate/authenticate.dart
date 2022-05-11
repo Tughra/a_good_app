@@ -1,3 +1,4 @@
+import 'package:a_good_app/lib/screen/authenticate/authenticated_page.dart';
 import 'package:a_good_app/screen/authenticate/user_page.dart';
 import 'package:a_good_app/screen/authenticate/user_page_register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,6 +13,7 @@ class Authentication extends StatefulWidget {
 }
 
 class _AuthenticationState extends State<Authentication> {
+
   bool showSignIn=false;
   void toggleView(){
     setState(() {
@@ -20,8 +22,14 @@ class _AuthenticationState extends State<Authentication> {
   }
   @override
   Widget build(BuildContext context) {
+    final User? user=Provider.of<User?>(context);
+    print(user?.uid);
     if(showSignIn==false){
-      return UserPage(showSignIn: toggleView);
+      if(user!=null) {
+        return AuthenticatedPage();
+      } else {
+        return UserPage(showSignIn: toggleView);
+      }
     }else{
       return RegisterPage(showSignIn: toggleView);
     }
