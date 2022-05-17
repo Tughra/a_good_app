@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: StreamProvider<User?>.value(initialData:null ,value:AuthService().user,child: const Wrapper()),
+      home: StreamProvider<User?>.value(initialData:null ,value:AuthService().userChanges,child: const Wrapper()),
     );
   }
 }

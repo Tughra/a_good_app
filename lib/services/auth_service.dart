@@ -10,7 +10,7 @@ class AuthService {
     return user;
   }
 
-  Stream<User?> get user {
+  Stream<User?> get userChanges {
     return _auth.authStateChanges();
   }
 

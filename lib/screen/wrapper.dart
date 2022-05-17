@@ -10,7 +10,8 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final User? user=Provider.of<User?>(context);
-    print(user);
+    print("--*--");
+    print(user?.uid);
     if(user==null) {
       return const Home();
     } else {
