@@ -1,9 +1,10 @@
-import 'package:a_good_app/lib/screen/authenticate/authenticated_page.dart';
 import 'package:a_good_app/screen/authenticate/user_page.dart';
 import 'package:a_good_app/screen/authenticate/user_page_register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'authenticated_page.dart';
 
 class Authentication extends StatefulWidget {
   const Authentication({Key? key}) : super(key: key);

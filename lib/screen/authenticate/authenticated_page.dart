@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:a_good_app/models/user_model.dart';
 import 'package:a_good_app/screen/home/home.dart';
 import 'package:a_good_app/services/auth_service.dart';
 import 'package:a_good_app/services/database_service.dart';
@@ -30,9 +31,10 @@ class _AuthenticatedPageState extends State<AuthenticatedPage> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot?>.value(
+    DataBaseService().userList.first.then((value) => print(value.first.totalPower));
+    return StreamProvider<List<UserModel>?>.value(
       initialData: null,
-      value: DataBaseService().repoCollections,
+      value: DataBaseService().userList,
       child: Scaffold(
         appBar: AppBar(
           title: const Text("Authenticated"),
@@ -55,21 +57,22 @@ class _AuthenticatedPageState extends State<AuthenticatedPage> {
                 icon: const Icon(Icons.exit_to_app))
           ],
         ),
-        body:const DAS(),
+        body:const DocumentList(),
       ),
     );
   }
 }
-class DAS extends StatelessWidget {
-  const DAS({Key? key}) : super(key: key);
+class DocumentList extends StatelessWidget {
+  const DocumentList({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child:Provider.of<QuerySnapshot?>(context)?.docs==null?Text("boş"):ListView.builder(
-          itemCount:Provider.of<QuerySnapshot>(context).docs.length ,
+      child:Provider.of<List<UserModel>?>(context)==null?Text("boş"):ListView.builder(
+          itemCount:Provider.of<List<UserModel>?>(context)!.length ,
           itemBuilder: (context, index) => ListTile(
-            title: Text(context.read<QuerySnapshot?>()?.docs[index].id??"1"),
+            title: Text(context.read<List<UserModel>>()[index].totalAttendance!),
           )),
     );
   }

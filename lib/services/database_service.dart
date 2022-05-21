@@ -1,7 +1,8 @@
 import 'dart:developer';
-
+import 'package:a_good_app/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+
+
 
 class DataBaseService{
   late final String uid;
@@ -10,7 +11,7 @@ class DataBaseService{
   }
   DataBaseService();
   final _fireInstance= FirebaseFirestore.instance;
-  final CollectionReference repoCollection = FirebaseFirestore.instance.collection("repository");
+  final CollectionReference<Map<String, dynamic>> repoCollection = FirebaseFirestore.instance.collection("repository");
   Future updateUserRepo({required String star,required String attendance,required int power})async{
     return await repoCollection.doc(uid).set({
       "totalStar":star,
@@ -20,6 +21,23 @@ class DataBaseService{
   }
   Stream<QuerySnapshot?> get repoCollections{
     return repoCollection.snapshots();
+  }
+   List<UserModel> _userModelsFromSnapshot(QuerySnapshot<Map<String, dynamic>> snapshot){
+  List<UserModel> userModelList =snapshot.docs.map((element) {
+   return UserModel.fromJson(element.data());
+  }).toList();
+  return userModelList;
+     //UserModel.fromJson("");
+/*
+ DocumentReference document = locationRecordingsCollection.document((location));
+
+ DocumentSnapshot documentSnapshot =  await document.get();
+ var data = LocationRecordings.fromJson(documentSnapshot.data);
+ */
+  }
+  Stream<List<UserModel>> get userList{
+//    QuerySnapshot<Map<String, dynamic>> snapshot = repoCollection.snapshots().first;
+    return repoCollection.snapshots().map(_userModelsFromSnapshot);
   }
   Future<Map<String,dynamic>?> getUserDocument(String uid)async{
     print("object");
