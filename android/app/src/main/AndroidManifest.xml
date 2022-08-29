@@ -2,7 +2,8 @@
     package="com.tugra.a_good_app">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET"/>
-   <application
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <application
         android:label="a_good_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

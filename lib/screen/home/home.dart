@@ -1,3 +1,4 @@
+import 'package:a_good_app/core/notification_service.dart';
 import 'package:a_good_app/screen/authenticate/authenticate.dart';
 import 'package:a_good_app/screen/authenticate/authenticated_page.dart';
 import 'package:a_good_app/screen/authenticate/user_page.dart';
@@ -28,7 +29,7 @@ class _HomeState extends State<Home> {
 
             },),
             TextButton(child:const Text("Sign in with facebook"),onPressed: (){
-
+          LocalNotificationService.instance.showNotification(hashcode: 1, payload: "payload",title: "asdsa",body: "asdsadsadas");
             },),
             TextButton(child:const Text("Sign in anonymously"),onPressed: (){
               _authService.signInAnonymous().then((value){
